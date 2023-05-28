@@ -4,7 +4,7 @@ class Father{
     public static $a;
     function display($num){
         self::$a=$num;//accessing the satatic varaible by using self keyword
-        echo"the value of A:".self::$a;
+        echo"the value of A:".self::$a;// but non static properties can not be accessed by static method
     }
 
 }
@@ -20,4 +20,16 @@ class StaticFun{
     }
 }
 StaticFun::showValue(122);
+//static with inhertance
+class Mother{
+    public static $c =150;
+}
+class Daughter extends Mother
+{
+    function getValue(){
+        echo " the vlaue of C:".self::$c // we can access the statuc varaible using class name , parent or self keyword
+    }
+}
+$object =new Daughter;
+$object->getValue;
 ?>
